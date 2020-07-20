@@ -104,8 +104,9 @@
 
     <script>
         function getMessage() {
-            const websiteName = window.location.href;
-            var message = websiteName.replace("http://uthiuthi.fun/", "");
+            const url = window.location.href;
+            const params = new URLSearchParams(window.location.search);  
+            const message = params.get("message");  
             if (message.length > 0) {
                 document.getElementById("mainMessage").innerHTML = decodeURI(message);
             }
@@ -118,7 +119,7 @@
 
         function generateShareLinkForCustomMessage() {
             const customMessage = document.getElementById("customMessage").value;
-            const url = "http://uthiuthi.fun/" + encodeURI(customMessage);
+            const url = "http://uthiuthi.fun/?message=" + encodeURI(customMessage);
             document.getElementById("sharableLink").innerHTML = url;
             copyLink(url);         
         }
