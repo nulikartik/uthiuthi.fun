@@ -1,6 +1,129 @@
 <!DOCTYPE html>
 <html>
-  <body>
-    <p>Uthi uthi ne enduku open chesav ra paniki mallina voda</p>
-  </body>
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-172948817-1"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-172948817-1');
+    </script>
+
+    </head>
+    <body 
+    onload="getMessage()"
+    style="background-color: rgb(202,202,202);">
+        <div style="
+            margin: auto;
+            width: 60%;">
+                <p 
+                    id = "mainMessage"
+                    style = "
+                        font-size: 3em; 
+                        font-weight: bold;
+                        margin: auto; 
+                        text-align: center;">
+                        Uthi uthi ne enduku open chesav ra paniki mallina yedava
+                </p>
+                <img 
+                    id = "sticker"
+                    src="1.png" style="display: block;
+                    margin-left: auto;
+                    margin-right: auto;
+                    margin-bottom: 20px;
+                    width: 30%;
+                    height: 30%;"/>
+                <button style="
+                    text-align: center;
+                    color: white;
+                    border: none;
+                    padding: 15px 32px;
+                    text-align: center;
+                    text-decoration: none;
+                    display: inline-block;
+                    font-size: 16px;
+                    cursor: pointer;
+                    background-color: #008CBA;"
+                onclick="changeSticker()">
+                    Generate another sticker
+                </button>
+        </div>       
+        <hr />
+        <p style="
+            font-size: 1.5em;
+            color: black;">
+                Send a link of this webpage to your friends with your own message:
+        </p>
+        <textarea id="customMessage" rows="4" cols="50" placeholder="Enter your message here..."></textarea>
+        <br />
+        <button
+        style="
+        text-align: center;
+        color: white;
+        border: none;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 1em;
+        margin-top: 20px;
+        cursor: pointer;
+        background-color: #008CBA;"
+             onclick="generateShareLinkForCustomMessage()">Generate link to share with your friends</button>
+        <p 
+            style="
+            font-size: 1.5em;
+            color: black;"
+            id="sharableLink"></p>
+        <button
+        style="
+        text-align: center;
+        color: white;
+        border: none;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 1em;
+        margin: auto;
+        cursor: pointer;
+        background-color: #008CBA;"
+            id="copyLink" onclick="copyLink()">Copy link to clipboard</button>
+    </body>
+
+    <script>
+        function getMessage() {
+            const websiteName = window.location.href;
+            var message = websiteName.replace("http://uthiuthi.fun/", "");
+            if (message.length > 0) {
+                document.getElementById("mainMessage").innerHTML = decodeURI(message);
+            }
+        }
+
+        function changeSticker() {
+            const stickerNumber = Math.floor(Math.random() * 10) + 1;
+            document.getElementById("sticker").src = stickerNumber + ".png";
+        }
+
+        function generateShareLinkForCustomMessage() {
+            const customMessage = document.getElementById("customMessage").value;
+            const url = "http://uthiuthi.fun/" + encodeURI(customMessage);
+            document.getElementById("sharableLink").innerHTML = url;
+            copyLink(url);         
+        }
+
+        function copyLink() {
+            if (document.getElementById("customMessage").value === "") {
+                alert("Please enter the message you want to share in the text box");
+                return;
+            }
+            generateShareLinkForCustomMessage();
+        }
+        
+        function copyLink(input) {      
+            navigator.clipboard.writeText(input);
+        }
+    </script>
 </html>
