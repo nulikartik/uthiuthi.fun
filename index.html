@@ -26,12 +26,13 @@
                         font-size: 3em; 
                         font-weight: bold;
                         margin: auto; 
-                        text-align: center;">
+                        text-align: center;
+                        color: rgb(192, 24, 24);">
                         Uthi uthi ne enduku open chesav ra paniki mallina yedava
                 </p>
                 <img 
                     id = "sticker"
-                    src="1.png" style="display: block;
+                    src="./1.png" style="display: block;
                     margin-left: auto;
                     margin-right: auto;
                     margin-bottom: 20px;
@@ -56,7 +57,7 @@
         </div>       
         <hr />
         <p style="
-            font-size: 1.5em;
+            font-size: 2em;
             color: black;">
                 Send a link of this webpage to your friends with your own message:
         </p>
@@ -71,7 +72,7 @@
         text-align: center;
         text-decoration: none;
         display: inline-block;
-        font-size: 2em;
+        font-size: 1.5em;
         margin-top: 20px;
         cursor: pointer;
         background-color: #008CBA;"
@@ -90,7 +91,7 @@
         text-align: center;
         text-decoration: none;
         display: inline-block;
-        font-size: 2em;
+        font-size: 1.5em;
         margin: auto;
         cursor: pointer;
         background-color: #008CBA;"
@@ -109,7 +110,7 @@
 
         function changeSticker() {
             const stickerNumber = Math.floor(Math.random() * 10) + 1;
-            document.getElementById("sticker").src = stickerNumber + ".png";
+            document.getElementById("sticker").src = "./" + stickerNumber + ".png";
         }
 
         function generateShareLinkForCustomMessage() {
