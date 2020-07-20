@@ -51,6 +51,8 @@
                 onclick="changeSticker()">
                     Generate another sticker
                 </button>
+                <hr />
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/irY3N9RnapI?start=470&end=510" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>       
         <hr />
         <p style="
@@ -94,7 +96,6 @@
         background-color: #008CBA;"
             id="copyLink" onclick="copyLink()">Copy link to clipboard</button>
         <br style="margin-top: 5px;"/>
-        <button>there</button>
     </body>
 
     <script>
@@ -126,7 +127,7 @@
             generateShareLinkForCustomMessage();
         }
         
-        function copyLink(input) {      
+        function copyLink(input="") {      
             navigator.clipboard.writeText(input);
         }
     </script>
