@@ -106,7 +106,7 @@
             const url = window.location.href;
             const params = new URLSearchParams(window.location.search);  
             const message = params.get("message");  
-            if (message.length && message.length > 0) {
+            if (message && message.length && message.length > 0) {
                 document.getElementById("mainMessage").innerHTML = decodeURI(message);
             }
         }
