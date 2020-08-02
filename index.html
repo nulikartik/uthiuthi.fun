@@ -118,7 +118,8 @@
 
         function generateShareLinkForCustomMessage() {
             const customMessage = document.getElementById("customMessage").value;
-            if (customMessage && customMessage.length === 0) {
+            if (customMessage.length === 0) {
+                alert("custom message length: " + customMessage.length);
                 if(window.confirm("Do you want to share the link with the default message?")) {
                     if (navigator.share !== undefined) {
                         const shareData = {
@@ -129,7 +130,18 @@
                         navigator.share(shareData);
                     }
                     return;
-                } 
+                }
+            } else {
+                const url = "http://uthiuthi.fun/?message=" + encodeURI(customMessage);
+                    if (navigator.share !== undefined) {
+                        const shareData = {
+                            title: 'UthiUthi.fun',
+                            text: 'Uthi uthi ne',
+                            url: url,
+                        }
+                        navigator.share(shareData);
+                    }
+                    return;
             }
             const url = "http://uthiuthi.fun/?message=" + encodeURI(customMessage);
             document.getElementById("sharableLink").innerHTML = url;
